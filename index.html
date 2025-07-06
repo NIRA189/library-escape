@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>図書館からの脱出</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; background-color: #f8f9fa; }
+    input[type="text"] { padding: 10px; width: 200px; font-size: 1.2em; }
+    button { padding: 10px 20px; font-size: 1em; }
+    #result { margin-top: 20px; font-size: 1.5em; }
+  </style>
+</head>
+<body>
+  <h1>🔐 図書館ミステリーラリー</h1>
+  <p>最後の謎…パスワードを入力してください。</p>
+
+  <input type="text" id="password" placeholder="ここに入力">
+  <button onclick="checkPassword()">解除</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkPassword() {
+      const correct = "しおり";
+      const input = document.getElementById("password").value.trim();
+      if (input === correct) {
+        document.getElementById("result").innerHTML = "🎉 脱出成功！おめでとうございます！";
+        document.body.style.backgroundColor = "#d4edda";
+      } else {
+        document.getElementById("result").innerHTML = "❌ 間違っています。もう一度挑戦してください。";
+        document.body.style.backgroundColor = "#f8d7da";
+      }
+    }
+  </script>
+</body>
+</html>
