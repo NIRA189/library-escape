@@ -2,35 +2,85 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>図書館からの脱出</title>
+  <title>図書館クイズラリー 解答ページ</title>
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 100px; background-color: #f8f9fa; }
-    input[type="text"] { padding: 10px; width: 200px; font-size: 1.2em; }
-    button { padding: 10px 20px; font-size: 1em; }
-    #result { margin-top: 20px; font-size: 1.5em; }
+    body {
+      font-family: sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    section {
+      display: none;
+      padding: 40px 20px;
+    }
+    section.active {
+      display: block;
+    }
+    img {
+      max-width: 80%;
+      height: auto;
+    }
+    button {
+      margin-top: 50px;
+      padding: 20px 40px;
+      font-size: 2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #startBtn {
+      background-color: #28a745;
+      color: white;
+    }
+    #checkBtn {
+      background-color: #007bff;
+      color: white;
+    }
   </style>
 </head>
 <body>
-  <h1>🔐 図書館ミステリーラリー</h1>
-  <p>最後の謎…パスワードを入力してください。</p>
 
-  <input type="text" id="password" placeholder="ここに入力">
-  <button onclick="checkPassword()">解除</button>
+  <!-- 1ページ目 -->
+  <section id="page1" class="active">
+    <img src="図書館クイズラリーポスター1.png" alt="ページ1の画像">
+    <br>
+    <button id="startBtn" onclick="goToPage(2)">回答を開始する</button>
+  </section>
 
-  <div id="result"></div>
+  <!-- 2ページ目 -->
+  <section id="page2">
+    <img src="図書館クイズラリー探偵1.png" alt="ページ2の画像">
+    <p>答えを入力してください</p>
+    <input type="text" id="answerInput" placeholder="ここに答えを入力"
+    style="font-size: 1.5em; width: 300px; padding: 10px;">
+    <br>
+    <button id="checkBtn" onclick="checkAnswer()">送信</button>
+  </section>
+
+  <!-- 3ページ目 -->
+  <section id="page3">
+    <h2>🎉 正解です！図書館1階Rillport前にあるクイズラリー受付までお越しください</h2>
+    <p>ご参加ありがとうございました。</p>
+  </section>
 
   <script>
-    function checkPassword() {
-      const correct = "しおり";
-      const input = document.getElementById("password").value.trim();
-      if (input === correct) {
-        document.getElementById("result").innerHTML = "🎉 脱出成功！おめでとうございます！";
-        document.body.style.backgroundColor = "#d4edda";
+    function goToPage(pageNumber) {
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById("page" + pageNumber).classList.add("active");
+    }
+
+    function checkAnswer() {
+      const correctAnswer = "1"; // ★ ここを自由に書き換えてください
+      const userAnswer = document.getElementById("answerInput").value.trim();
+      if (userAnswer === correctAnswer) {
+        goToPage(3);
       } else {
-        document.getElementById("result").innerHTML = "❌ 間違っています。もう一度挑戦してください。";
-        document.body.style.backgroundColor = "#f8d7da";
+        alert("不正解です。もう一度試してください。");
       }
     }
   </script>
+
 </body>
 </html>
