@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>図書館クイズラリー 回答ページ</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; text-align: center; }
+    section { min-height: 100vh; padding: 60px 20px; box-sizing: border-box; display: none; opacity: 0; transform: translateY(30px); transition: 0.6s; }
+    section.active { display: block; opacity: 1; transform: translateY(0); }
+    img { max-width: 80%; height: auto; border-radius: 8px; }
+    button { margin-top: 20px; padding: 12px 24px; font-size: 1rem; border: none; border-radius: 6px; cursor: pointer; }
+    input { font-size: 1.2rem; width: 80%; max-width: 400px; padding: 12px; border: 2px solid #ccc; border-radius: 4px; margin-top: 16px; }
+    #startBtn { background-color: #28a745; color: white; }
+    .checkBtn { background-color: #007bff; color: white; }
+    header { background-color: #fff; color: #000; display: flex; justify-content: space-between; align-items: center; padding: 20px; flex-wrap: wrap;}
+    footer { background-color: #000; color: #fff; text-align: center; padding: 20px; font-size: 0.9em; }
+  </style>
 </head>
 <body>
-
   <header>
     <h1>図書館クイズラリー</h1>
     <nav>
@@ -19,26 +29,29 @@
   </header>
 
   <section id="page1" class="active">
-    <img src="start_image.jpg" alt="図書館の風景">
+    <img src="図書館クイズラリーポスター1.png" alt="図書館の風景">
+
+  </section>
+  <section id="page1" class="active">
     <button id="startBtn" onclick="goTo(2)">回答を開始する</button>
   </section>
 
   <section id="page2">
-    <img src="quiz1_image.jpg" alt="クイズ1の画像">
+    <img src="図書館クイズラリー探偵1.png" alt="クイズ1の画像">
     <p>クイズ1の答えを入力してください</p>
     <input type="text" id="answerInput1" placeholder="答えを入力">
     <button class="checkBtn" onclick="checkAnswer(1)">送信</button>
   </section>
 
   <section id="page3">
-    <img src="quiz2_image.jpg" alt="クイズ2の画像">
+    <img src="図書館クイズラリー探偵1.png" alt="クイズ2の画像">
     <p>クイズ2の答えを入力してください</p>
     <input type="text" id="answerInput2" placeholder="答えを入力">
     <button class="checkBtn" onclick="checkAnswer(2)">送信</button>
   </section>
 
   <section id="page4">
-    <img src="quiz3_image.jpg" alt="クイズ3の画像">
+    <img src="図書館クイズラリー探偵1.png" alt="クイズ3の画像">
     <p>クイズ3の答えを入力してください</p>
     <input type="text" id="answerInput3" placeholder="答えを入力">
     <button class="checkBtn" onclick="checkAnswer(3)">送信</button>
@@ -46,12 +59,8 @@
 
   <section id="page5">
     <h2>🎉 正解です！図書館クイズラリー 完了！</h2>
-    <p>すべての謎を解き明かしました！ご参加ありがとうございました。</p>
+    <p>すべての謎を解き明かしました！図書館1階Rillport前のクイズラリー受付にお越しください。</p>
   </section>
-
-  <footer>
-    &copy; 2025 立正大学図書館クイズラリー All Rights Reserved.
-  </footer>
 
   <script>
     function goTo(pageNumber) {
@@ -62,11 +71,11 @@
     }
 
     function checkAnswer(quizNumber) {
-      const answers = ["しおり", "ほん", "としょかん"];
+      const answers = ["1", "2", "3"]; // ★ここで答えを設定
       const inputId = "answerInput" + quizNumber;
       const userAnswer = document.getElementById(inputId).value.trim();
       if (userAnswer === answers[quizNumber - 1]) {
-        alert("正解！");
+        alert("正解！次へ行く→");
         goTo(quizNumber + 2);
       } else {
         alert("不正解です。もう一度試してください。");
@@ -75,4 +84,7 @@
   </script>
 
 </body>
+<footer>
+  &copy; 2025 立正大学図書館クイズラリー All Rights Reserved.
+</footer>
 </html>
