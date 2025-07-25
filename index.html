@@ -1,79 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>図書館クイズラリー 回答ページ</title>
+<header>...</header>
 
-</head>
-<body>
-  <header>
-    <h1>図書館クイズラリー</h1>
-    <nav>
-      <a href="#page1">トップ</a>
-      <a href="#page2">クイズ1</a>
-      <a href="#page3">クイズ2</a>
-      <a href="#page4">クイズ3</a>
-      <a href="#page5">完了</a>
-    </nav>
-  </header>
+<section id="hero">
+  <div class="hero-bg">
+    <h1>ひらめきと魔法を駆使して、9つの不思議な部屋から脱出せよ！</h1>
+  </div>
+</section>
 
-  <section id="page1" class="active">
-    <img src="図書館クイズラリーポスター1.png" alt="図書館の風景">
+<section id="story">
+  <h2>ストーリー</h2>
+  <p>あなたが迷い込んだのは、周囲に9部屋が連なる不思議な館…</p>
+</section>
 
-  </section>
-  <section id="page1" class="active">
-    <button id="startBtn" onclick="goTo(2)">回答を開始する</button>
-  </section>
+<section id="details">
+  <h2>イベント概要</h2>
+  <ul>
+    <li>制限時間：50分</li>
+    <li>参加人数：2〜4名</li>
+    <li>想定所要時間：60～120分</li>
+  </ul>
+</section>
 
-  <section id="page2">
-    <img src="図書館クイズラリー探偵1.png" alt="クイズ1の画像">
-    <p>クイズ1の答えを入力してください</p>
-    <input type="text" id="answerInput1" placeholder="答えを入力">
-    <button class="checkBtn" onclick="checkAnswer(1)">送信</button>
-  </section>
+<section id="faq">
+  <h2>よくある質問</h2>
+  <p>お一人での参加はできません。...</p>
+</section>
 
-  <section id="page3">
-    <img src="図書館クイズラリー探偵1.png" alt="クイズ2の画像">
-    <p>クイズ2の答えを入力してください</p>
-    <input type="text" id="answerInput2" placeholder="答えを入力">
-    <button class="checkBtn" onclick="checkAnswer(2)">送信</button>
-  </section>
-
-  <section id="page4">
-    <img src="図書館クイズラリー探偵1.png" alt="クイズ3の画像">
-    <p>クイズ3の答えを入力してください</p>
-    <input type="text" id="answerInput3" placeholder="答えを入力">
-    <button class="checkBtn" onclick="checkAnswer(3)">送信</button>
-  </section>
-
-  <section id="page5">
-    <h2>🎉 正解です！図書館クイズラリー 完了！</h2>
-    <p>すべての謎を解き明かしました！図書館1階Rillport前のクイズラリー受付にお越しください。</p>
-  </section>
-
-  <script>
-    function goTo(pageNumber) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      const next = document.getElementById('page' + pageNumber);
-      next.classList.add('active');
-      next.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function checkAnswer(quizNumber) {
-      const answers = ["1", "2", "3"]; // ★ここで答えを設定
-      const inputId = "answerInput" + quizNumber;
-      const userAnswer = document.getElementById(inputId).value.trim();
-      if (userAnswer === answers[quizNumber - 1]) {
-        alert("正解！次へ行く→");
-        goTo(quizNumber + 2);
-      } else {
-        alert("不正解です。もう一度試してください。");
-      }
-    }
-  </script>
-
-</body>
-<footer>
-  &copy; 2025 立正大学図書館クイズラリー All Rights Reserved.
-</footer>
-</html>
+<footer>©SCRAP All rights reserved.</footer>
