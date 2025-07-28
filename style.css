@@ -6,6 +6,16 @@ body, html {
   height: 100%;
 }
 
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
 footer {
    background-color: #000;
    color: #fff;
