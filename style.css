@@ -32,8 +32,8 @@ footer {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  width: 80%;
-  max-width: 300px;
+  width: 100%;
+  max-width: 480px;
 }
 
 h1 {
