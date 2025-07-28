@@ -24,7 +24,8 @@ footer {
   text-align: center;
 }
 
-.start-button {
+@media screen and (max-width: 480px){
+ .start-button {
   background-color: #28a745;
   color: white;
   padding: 20px 0px;
@@ -33,8 +34,8 @@ footer {
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
-  max-width: 480px;
 }
+  }
 
 h1 {
   font-size: 2em;
